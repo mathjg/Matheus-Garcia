@@ -166,6 +166,7 @@ header {
         align-items: center;
         justify-content: center;
         z-index: 1000;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
     .icone-hamburguer {
         width: 24px;
@@ -249,8 +250,9 @@ header {
         /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
     @media (pointer: fine) {
         .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover {
-        background: color-mix(in srgb, var(--escuro1) 50%, transparent);
+            background: color-mix(in srgb, var(--escuro1) 50%, transparent);
             cursor: pointer;
+            transition: background-color 0.2s ease;
         }
     }
 
@@ -434,6 +436,7 @@ header {
         max-width: 800px;
         margin: 0 auto;
     }
+}
 
 /* --- ÍCONES E LOGO --- */
 .logo {
@@ -456,5 +459,4 @@ header {
 }
 .logo:hover .icone-logo {
     background-color: var(--claro1);
-}
 }
