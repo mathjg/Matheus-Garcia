@@ -1,19 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. CONTROLE DO MENU HAMBÚRGUER (MOBILE)
-    // ==========================================
     const menuBtn = document.getElementById('menuBtn');
     const menuOverlay = document.getElementById('menuOverlay');
     const btnFecharMobile = document.querySelector('.btn-fechar-mobile');
     const linksMobile = document.querySelectorAll('.grid-pirulas-mobile a');
+    
+    // Seleciona o HTML e o BODY
+    const html = document.documentElement;
+    const body = document.body;
 
     function alternarMenu(abrir) {
+        // Verifica se a tela é menor que 768px (Mobile)
+        const isMobile = window.innerWidth < 768;
+
         if (abrir) {
             menuOverlay.classList.add('aberto');
+            
+            // Só trava a rolagem se for dispositivo mobile
+            if (isMobile) {
+                html.classList.add('travar-rolagem');
+                body.classList.add('travar-rolagem');
+            }
+            
             if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
         } else {
             menuOverlay.classList.remove('aberto');
+            
+            // Remove a trava em qualquer situação ao fechar
+            html.classList.remove('travar-rolagem');
+            body.classList.remove('travar-rolagem');
+            
             if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
         }
     }
@@ -27,37 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
         linksMobile.forEach(link => {
             link.addEventListener('click', () => alternarMenu(false));
         });
-    }
-
-
-    // ==========================================
-    // 2. CONTROLE DO MENU DE ACESSIBILIDADE (Pop-up/Overlay)
-    // ==========================================
-    const acessibilidadeBtn = document.getElementById('acessibilidadeBtn');
-    const acessibilidadeOverlay = document.getElementById('acessibilidadeOverlay');
-    const btnFecharAcessibilidade = document.querySelector('.btn-fechar-acessibilidade');
-
-    // AQUI ENTRA O BLOCO NOVO INTELIGENTE PARA DESKTOP E MOBILE:
-    if (acessibilidadeBtn && acessibilidadeOverlay) {
-        acessibilidadeBtn.addEventListener('click', () => {
-            // Verifica se o pop-up já está aberto (devolve true ou false)
-            const estaAberto = acessibilidadeOverlay.classList.contains('aberto');
-            
-            if (estaAberto) {
-                acessibilidadeOverlay.classList.remove('aberto');
-                acessibilidadeBtn.setAttribute('aria-expanded', 'false');
-            } else {
-                acessibilidadeOverlay.classList.add('aberto');
-                acessibilidadeBtn.setAttribute('aria-expanded', 'true');
-            }
-        });
-
-        // Clique no "X" para fechar (específico do mobile)
-        if (btnFecharAcessibilidade) {
-            btnFecharAcessibilidade.addEventListener('click', () => {
-                acessibilidadeOverlay.classList.remove('aberto');
-                acessibilidadeBtn.setAttribute('aria-expanded', 'false');
-            });
-        }
     }
 });
