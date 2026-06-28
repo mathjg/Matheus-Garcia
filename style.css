@@ -1,0 +1,704 @@
+:root {
+    /*paleta de cores*/
+    --azul1: #99c1f1;
+    --azul2: #62a0ea;
+    --azul3: #3584e4;
+    --azul4: #1c71d8;
+    --azul5: #1a5fb4;
+    --verde1: #8ff0a4;
+    --verde2: #57e389;
+    --verde3: #33d17a;
+    --verde4: #2ec27e;
+    --verde5: #26a269;
+    --amarelo1: #F9F06B;
+    --amarelo2: #F8E45C;
+    --amarelo3: #F6D32D;
+    --amarelo4: #F5C211;
+    --amarelo5: #E5A50A;
+    --laranja1: #FFBE6F;
+    --laranja2: #FFA348;
+    --laranja3: #FF7800;
+    --laranja4: #E66100;
+    --laranja5: #C64600;
+    --vermelho1: #F66151;
+    --vermelho2: #ED333B;
+    --vermelho3: #E01B24;
+    --vermelho4: #C01C28;
+    --vermelho5: #A51D2D;
+    --roxo1: #DC8ADD;
+    --roxo2: #C061CB;
+    --roxo3: #9141AC;
+    --roxo4: #813D9C;
+    --roxo5: #613583;
+    --marrom1: #CDAB8F;
+    --marrom2: #B5835A;
+    --marrom3: #986A44;
+    --marrom4: #865E3C;
+    --marrom5: #63452C;
+    --claro1: #FFFFFF;
+    --claro2: #F6F5F4;
+    --claro3: #DEDDDA;
+    --claro4: #C0BFBC;
+    --claro5: #9A9996;
+    --escuro1: #77767B;
+    --escuro2: #5E5C64;
+    --escuro3: #3D3846;
+    --escuro4: #241F31;
+    --escuro5: #000000;
+    
+    /*familia de fontes, informado no html*/
+    --texto-principal: 'Inter', sans-serif;
+
+    /*tipografia*/
+    --tamanho1: 2rem; /*títulos*/
+    --tamanho2: 1.5rem; /*subtítulos*/
+    --tamanho3: 1rem; /*leitura*/
+    --tamanho4: 0.875rem; /*legendas ou rodapés*/
+
+    /*espaçamentos*/
+    --espaco-p: 8px;
+    --espaco-m: 16px;
+    --espaco-g: 24px;
+    --espaco-gg: 32px;
+    --raio-borda: 12px;         /* Deixa os cantos dos botões e cards arredondados e modernos */
+
+    /*variáveis para modo claro*/
+    --bg-site: var(--escuro5);
+    --cor-texto-base: var(--claro1);
+    --cor-painel-base: var(--escuro3); 
+    --cor-borda-base: var(--escuro2);
+    --cor-texto-painel: var(--claro1);
+}
+    /* --- ESTILOS GERAIS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-family: 'Inter';
+    background: var(--escuro5);
+    color: var(--claro1);
+    line-height: 1.6;
+}
+
+/* --- MOBILE (Padrão) --- */
+
+header {
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 30px;
+    width: 100vw;
+    z-index: 10;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.janela-gradiente {
+    background: linear-gradient(135deg, var(--vermelho5), var(--roxo1));
+    padding: 120px 20px 60px 20px;
+}
+
+.janela-gradiente h1, .janela-gradiente h2, .janela-gradiente h3, .janela-gradiente h4, .janela-gradiente p {
+    padding: 0 0 0 10px;
+}
+
+.conteudo {
+    padding: 30px;
+}
+
+@media (max-width: 767px) {
+    
+    /* Esconde a barra horizontal do desktop no celular */
+    .navigation { display: none; }
+
+    .pular-conteudo {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%);
+        background: var(--claro2);
+        color: var(--escuro5);
+        padding: 13px 30px;
+        z-index: 99999;
+        font-family: var(--texto-principal);
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 0 0 8px 8px;
+        transition: top 0.2s ease;
+    }
+
+    .pular-conteudo:focus {
+        top: 0;
+        outline: none;
+    }
+
+        /* --- BOTÃO DE ACESSIBILIDADE NO MOBILE --- */
+    .btn-disparo-acessibilidade {
+        position: fixed;
+        top: 5px; /* Mesma altura do seu hambúrguer e do X */
+        right: 5px; /* Fixado na outra ponta da tela */
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2);
+        border-radius: 23px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        cursor: pointer;
+        color: var(--claro1);
+    }
+
+    .icone-acessibilidade {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-color: var(--claro1);
+        -webkit-mask: url('Elementos/body-symbolic.svg') no-repeat center / contain;
+        mask: url('Elementos/body-symbolic.svg') no-repeat center / contain;
+    }    
+
+    /* Estilização básica das pílulas internas do overlay */
+    .pirula-acessibilidade {
+        background: color-mix(in srgb, var(--escuro3) 60%, transparent);
+        border: 0.1px solid var(--escuro2);
+        padding: 16px 32px;
+        border-radius: 30px;
+        color: var(--claro1);
+        font-family: var(--texto-principal);
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transition: background-color 0.2s ease;
+    }
+
+    .pirula-acessibilidade:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* --- Botão de Fechar do Overlay de Acessibilidade (Sincronizado!) --- */
+    .btn-fechar-acessibilidade {
+        position: fixed;
+        top: 5px;
+        right: 5px; /* Abre na mesma posição do botão de disparo */
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2);
+        border-radius: 23px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        cursor: pointer;
+        color: var(--claro1);
+    }
+
+    /* Botão Hambúrguer (Abertura) */
+    .btn-menu-mobile {
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 29px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .icone-hamburguer {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-color: var(--claro1);
+        -webkit-mask: url('Elementos/menu-symbolic.svg') no-repeat center / contain;
+        mask: url('Elementos/menu-symbolic.svg') no-repeat center / contain;
+    }
+
+    /* Tela Cheia Mobile (Overlay) */
+    .menu-overlay-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(20px);
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    .menu-overlay-mobile.aberto {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Cabeçalho do Menu (Título + Botão Fechar) */
+    .overlay-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 35vh;
+        padding-bottom: 24px;
+    }
+    .titulo-menu {
+        font-family: var(--texto-principal);
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--claro1);
+    }
+    .btn-fechar-mobile {
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 29px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+    }
+    .icone-fechar {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-color: var(--claro1);
+        -webkit-mask: url('Elementos/close-symbolic.svg') no-repeat center / contain;
+        mask: url('Elementos/close-symbolic.svg') no-repeat center / contain;
+    }
+
+    /* --- GRID DE PÍRULAS ACESSIBILIDADE (MOBILE) --- */
+    /* A caixa mãe: dita o layout de 1 coluna vertical para acessibilidade */
+    .grid-pirulas-acessibilidade {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 16px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    /* A pílula corrigida: mudamos de 'a' para '.pirula-acessibilidade' para aceitar as tags button */
+    .grid-pirulas-acessibilidade .pirula-acessibilidade {
+        height: 66px;
+        border-radius: 33px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        border: 0.1px solid var(--escuro2);
+        color: var(--claro1);
+        text-decoration: none;
+        font-family: var(--texto-principal);
+        font-weight: 600;
+        font-size: var(--tamanho3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px; /* Aumentado de 8px para 12px para desgrudar o ícone do texto */
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.2s ease;
+    }
+
+    .grid-pirulas-acessibilidade .pirula-acessibilidade:active {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Estado Ativo: Quando a pílula de acessibilidade estiver selecionada */
+    .grid-pirulas-acessibilidade .pirula-acessibilidade.pirula-ativo {
+        background: #FFFFFF;
+        color: var(--escuro4);
+    }
+
+    /* Garante que o ícone mude para a cor escura se o botão estiver ativo */
+    .grid-pirulas-acessibilidade .pirula-acessibilidade.pirula-ativo .icone-pirula {
+        background-color: var(--escuro4);
+    }
+
+    /* Estado Ativo: Quando a pílula está selecionada */
+    .grid-pirulas-acessibilidade a.pirula-ativo {
+        background: #FFFFFF;
+        color: var(--escuro4);
+    }
+
+    /* Ícone base: o quadrado que recebe o SVG */
+    .icone-pirula {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-color: var(--claro1); /* Branco nas apagadas */
+    }
+
+    /* Ícone na pílula ativa: muda para escuro para dar contraste */
+    .grid-pirulas-acessibilidade a.pirula-ativo .icone-pirula {
+        background-color: var(--escuro4);
+    }
+
+    /* --- O SEU GRID DE PÍLULAS MENU ESTUDÁVEL --- */
+
+    /* A caixa mãe: só dita o layout de 2 colunas */
+    .grid-pirulas-mobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    /* A pílula: dita o visual de cada botão */
+    .grid-pirulas-mobile a {
+        height: 66px;
+        border-radius: 33px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        border: 0.1px solid var(--escuro2);
+        color: var(--claro1);
+        text-decoration: none;
+        font-family: var(--texto-principal);
+        font-weight: 600;
+        font-size: var(--tamanho3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background-color 0.2s ease;
+    }
+    .grid-pirulas-mobile a:active {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Estado Ativo: Quando a pílula está selecionada */
+    .grid-pirulas-mobile a.pirula-ativo {
+        background: #FFFFFF;
+        border: 0.1px solid var(--claro4);        
+        color: var(--escuro4);
+    }
+
+    /* Ícone base: o quadrado que recebe o SVG */
+    .icone-pirula {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background-color: var(--claro1); /* Branco nas apagadas */
+    }
+
+    /* Ícone na pílula ativa: muda para escuro para dar contraste */
+    .grid-pirulas-mobile a.pirula-ativo .icone-pirula {
+        background-color: var(--escuro4);
+    }
+
+    /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
+    @media (pointer: fine) {
+        .btn-disparo-acessibilidade:hover, .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .btn-fechar-acessibilidade:hover, .grid-pirulas-mobile a:hover {
+        background: color-mix(in srgb, var(--escuro1) 50%, transparent);
+            cursor: pointer;
+        }
+    }
+
+    /* SE O DISPOSITIVO FOR TOQUE (Celular de verdade): */
+    @media (pointer: coarse) {
+        .btn-disparo-acessibilidade:active {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+
+    /* Máscaras dos seus SVGs Locais */
+    .icone-home     { -webkit-mask: url('Elementos/home-symbolic.svg') no-repeat center / contain; mask: url('Elementos/home-symbolic.svg') no-repeat center / contain; }
+    .icone-projetos { -webkit-mask: url('Elementos/folder-symbolic.svg') no-repeat center / contain; mask: url('Elementos/folder-symbolic.svg') no-repeat center / contain; }
+    .icone-sobre    { -webkit-mask: url('Elementos/avatar-symbolic.svg') no-repeat center / contain; mask: url('Elementos/avatar-symbolic.svg') no-repeat center / contain; }
+    .icone-mais     { -webkit-mask: url('Elementos/plus-symbolic.svg') no-repeat center / contain; mask: url('Elementos/plus-symbolic.svg') no-repeat center / contain; }
+    .icone-tema     { -webkit-mask: url('Elementos/sun.svg') no-repeat center / contain; mask: url('Elementos/sun.svg') no-repeat center / contain; }
+    .icone-libras     { -webkit-mask: url('Elementos/hand.svg') no-repeat center / contain; mask: url('Elementos/hand.svg') no-repeat center / contain; }
+}
+/* ========================================================
+   2. REGRAS EXCLUSIVAS PARA DESKTOP (A partir de 768px)
+   ======================================================== */
+@media (min-width: 768px) {
+    /* Desativa sumariamente o que for mobile */
+    .btn-menu-mobile, 
+    .menu-overlay-mobile {
+        display: none !important;
+    }
+
+    .pular-conteudo {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%);
+        background: var(--claro2);
+        color: var(--escuro5);
+        padding: 13px 30px;
+        z-index: 99999;
+        font-family: var(--texto-principal);
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 0 0 8px 8px;
+        transition: top 0.2s ease;
+    }
+
+    .pular-conteudo:focus {
+        top: 0;
+        outline: none;
+    }
+
+    .header {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0;
+        width: 100vw;
+        padding: 15px 0;
+    }
+
+    .header-top {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 30px;
+        display: flex;
+        justify-content: start;
+    }
+
+    /* Sua pílula desktop linda, horizontal e totalmente limpa */
+    .navigation {
+        display: flex !important;
+        flex-direction: row;
+        position: fixed;
+        top: 5px;
+        right: calc(50% - 400px + 80px);
+        z-index: 100;
+        bottom: auto;
+        left: auto;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        box-shadow: none;
+        gap: 5px;
+        padding: 0 4px;
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        height: 46px;
+        align-items: center;
+    }
+
+    .navigation a {
+        color: var(--claro1);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: var(--tamanho3);
+        display: flex;
+        align-items: center;
+        padding: 6px 12px; 
+        border-radius: 20px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .navigation a:hover {
+        background-color: rgba(255, 255, 255, 0.1); 
+    }
+
+    .navigation a.ativo {
+        background-color: var(--claro1);
+        color: var(--escuro4);           
+    }
+
+    .btn-disparo-acessibilidade {
+        position: fixed;
+        top: 5px; /* Mesma altura do seu hambúrguer e do X */
+        right: calc(50% - 400px + 30px); /* Fixado na outra ponta da tela */
+        width: 46px;
+        height: 46px;
+        border: 0.1px solid var(--escuro2);
+        border-radius: 50px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        cursor: pointer;
+        color: var(--claro1);
+        transition: background-color 0.2s ease, 0.2s ease;
+    }
+
+    .btn-disparo-acessibilidade:hover {
+        background: color-mix(in srgb, var(--escuro1) 50%, transparent);
+    }
+
+    .btn-disparo-acessibilidade[aria-expanded="true"] {
+        background-color: var(--claro1);
+        color: var(--escuro4);
+        border: 0.1px solid var(--claro4);           
+    }
+
+    .btn-disparo-acessibilidade[aria-expanded="true"] .icone-acessibilidade {
+        background-color: var(--escuro4) !important;
+    }
+
+    .icone-acessibilidade {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-color: var(--claro1);
+    -webkit-mask: url('Elementos/body-symbolic.svg') no-repeat center / contain;
+    mask: url('Elementos/body-symbolic.svg') no-repeat center / contain;
+    }    
+
+    /* --- TRANSFORMA O OVERLAY EM POPOVER FLUTUANTE --- */
+    #acessibilidadeOverlay {
+        position: fixed !important;
+        top: 56px; /* 5px do topo + 46px da altura do botão + 5px de respiro */
+        right: calc(50% - 400px + 30px); /* Alinha exatamente na mesma linha horizontal do botão */
+        width: 240px; /* Largura ideal para o formato de menu flutuante */
+        height: auto !important; /* Altura se adapta aos botões internos */
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(20px);
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 30px; /* Cantos arredondados estilo menu Adwaita */
+        padding: 12px !important;
+        /*box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);*/ /* Sombra suave para destacar do fundo */
+        display: flex !important;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        
+        /* O JavaScript controla adicionando/removendo a classe '.aberto' */
+        flex-direction: column;
+        gap: 8px;
+        z-index: 1000;
+    }
+
+    /* Força o popover a aparecer em formato flex quando estiver ativo */
+    #acessibilidadeOverlay.aberto {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Esconde o cabeçalho mobile (o h2 "Acessibilidade" e o botão "X"), pois o clique no próprio ícone já fecha */
+    #acessibilidadeOverlay .overlay-header {
+        display: none !important;
+    }
+
+    /* --- AJUSTA AS PÍRULAS INTERNAS PARA SUB-BOTÕES --- */
+    #acessibilidadeOverlay .grid-pirulas-acessibilidade {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 0; /* Reseta a margem alta do mobile */
+        max-width: 100%;
+    }
+
+    #acessibilidadeOverlay .pirula-acessibilidade {
+        background: color-mix(in srgb, var(--escuro3) 60%, transparent);
+        border: 0.1px solid var(--escuro2);
+        padding: 10px 12px;
+        border-radius: 30px;
+        color: var(--claro1);
+        font-family: var(--texto-principal);
+        font-weight: bold;
+        font-size: var(--tamanho3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        transition: background-color 0.2s ease;
+    }
+
+    #acessibilidadeOverlay .icone-pirula {
+        width: 20px;         /* Um pouco menor que no mobile para combinar com o menu compacto */
+        height: 20px;
+        display: inline-block;
+        background-color: var(--claro1); /* Cor padrão do ícone (Branco) */
+        flex-shrink: 0;      /* Garante que o ícone não esmague se o texto for grande */
+        transition: background-color 0.2s ease;
+    }
+
+    /* Se a pílula de acessibilidade estiver ativa (pirula-ativo), o ícone fica escuro para dar contraste */
+    #acessibilidadeOverlay .pirula-acessibilidade.pirula-ativo .icone-pirula {
+        background-color: var(--escuro4);
+    }
+
+    /* Efeito hover elegante nos sub-botões */
+    #acessibilidadeOverlay .pirula-acessibilidade:hover {
+        background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .conteudo {
+        padding: 50px 0 0 30px;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .janela-gradiente h1, .janela-gradiente h2, .janela-gradiente h3, .janela-gradiente h4, .janela-gradiente p {
+        padding: 0 0 0 30px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /*icones-acessibilidade*/
+    .icone-tema     { -webkit-mask: url('Elementos/sun.svg') no-repeat center / contain; mask: url('Elementos/sun.svg') no-repeat center / contain; }
+    .icone-libras     { -webkit-mask: url('Elementos/hand.svg') no-repeat center / contain; mask: url('Elementos/hand.svg') no-repeat center / contain; }
+}
+
+
+/* --- ÍCONES E LOGO --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--claro1);
+    text-decoration: none;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.8));
+}
+.icone-logo {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: inline-block;
+    -webkit-mask: url('Elementos/editor-symbolic.svg') no-repeat center / contain;
+    mask: url('Elementos/editor-symbolic.svg') no-repeat center / contain;
+    background-color: var(--claro3);
+    transition: background-color 0.3s ease;
+}
+.logo:hover .icone-logo {
+    background-color: var(--claro1);
+}
