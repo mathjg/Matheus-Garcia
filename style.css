@@ -45,6 +45,7 @@
     --escuro3: #3D3846;
     --escuro4: #241F31;
     --escuro5: #000000;
+    --sombra-escura: 0px 2px 4px rgba(0, 0, 0, 0.8);
     
     /*familia de fontes, informado no html*/
     --texto-principal: 'Inter', sans-serif;
@@ -63,7 +64,7 @@
     --raio-borda: 12px;         /* Deixa os cantos dos botões e cards arredondados e modernos */
 
     /*variáveis para modo claro*/
-    --bg-site: var(--escuro5);
+    --texto-icone: var(--escuro5);
     --cor-texto-base: var(--claro1);
     --cor-painel-base: var(--escuro3); 
     --cor-borda-base: var(--escuro2);
@@ -435,6 +436,7 @@ header {
         padding: 0 0 0 30px;
         max-width: 800px;
         margin: 0 auto;
+        color: var(--claro1) !important;
     }
 }
 
@@ -445,15 +447,20 @@ header {
     gap: 10px;
     color: var(--claro1);
     text-decoration: none;
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(--sombra-escura);
+    text-shadow: 
+        -1px -1px 0 var(--escuro2),  
+         1px -1px 0 var(--escuro2),
+         -1px  1px 0 var(--escuro2),
+         1px  1px 0 var(--escuro2) !important;
 }
 .icone-logo {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
     display: inline-block;
-    -webkit-mask: url('Elementos/editor-symbolic.svg') no-repeat center / contain;
-    mask: url('Elementos/editor-symbolic.svg') no-repeat center / contain;
+    -webkit-mask: url('Elementos/editor.svg') no-repeat center / contain;
+    mask: url('Elementos/editor.svg') no-repeat center / contain;
     background-color: var(--claro3);
     transition: background-color 0.3s ease;
 }
