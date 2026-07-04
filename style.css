@@ -46,12 +46,14 @@
     --escuro4: #241F31;
     --escuro5: #000000;
     --sombra-escura: 0px 2px 4px rgba(0, 0, 0, 0.8);
+    --sombra-clara: 0px 2px 4px rgba(255, 255, 255, 0.8);
+    --cor-hover: color-mix(in srgb, var(--claro1) 20%, transparent);
     
     /*familia de fontes, informado no html*/
     --texto-principal: 'Inter', sans-serif;
 
     /*tipografia*/
-    --tamanho1: 2rem; /*títulos*/
+    --tamanho1: 2.5rem; /*títulos*/
     --tamanho2: 1.5rem; /*subtítulos*/
     --tamanho3: 1rem; /*leitura*/
     --tamanho4: 0.875rem; /*legendas ou rodapés*/
@@ -63,12 +65,17 @@
     --espaco-gg: 32px;
     --raio-borda: 12px;         /* Deixa os cantos dos botões e cards arredondados e modernos */
 
-    /*variáveis para modo claro*/
-    --texto-icone: var(--escuro5);
-    --cor-texto-base: var(--claro1);
-    --cor-painel-base: var(--escuro3); 
-    --cor-borda-base: var(--escuro2);
-    --cor-texto-painel: var(--claro1);
+    /*variáveis para modo escuro*/
+    /*--texto-icone:
+    --cor-body:
+    --cor-ativo:
+    --cor-barra:
+    --cor-borda:
+    --cor-hover: 
+    */
+
+    /*variáveis modo claro*/
+
 }
     /* --- ESTILOS GERAIS --- */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -86,6 +93,17 @@ body {
 
 body.travar-rolagem, html.travar-rolagem {
     overflow:hidden !important;
+}
+
+h1{
+    font-size: var(--tamanho1);
+}
+
+h2{
+    font-size: var(--tamanho2);
+}
+h3{
+    font-size: var(--tamanho3);
 }
 
 /* --- MOBILE (Padrão) --- */
@@ -109,8 +127,23 @@ header {
     gap: 10px;
 }
 
-.janela-gradiente {
+.janela-gradiente.home {
     background: linear-gradient(135deg, var(--vermelho5), var(--roxo1));
+    padding: 120px 20px 60px 20px;
+}
+
+.janela-gradiente.projetos {
+    background: linear-gradient(135deg, var(--laranja5), var(--amarelo2));
+    padding: 120px 20px 60px 20px;
+}
+
+.janela-gradiente.certificacoes {
+    background: linear-gradient(135deg, var(--azul5), var(--verde1));
+    padding: 120px 20px 60px 20px;
+}
+
+.janela-gradiente.sobre {
+    background: linear-gradient(135deg, var(--azul5), var(--roxo1));
     padding: 120px 20px 60px 20px;
 }
 
@@ -119,10 +152,89 @@ header {
     margin: 0;
 }
 
+/*bloco de conteúdo do body*/
 .conteudo {
     padding: 40px 20px;
     word-wrap: break-word;
 }
+
+/*grid de ultimos posts do index*/
+.conteudo-principal {
+    width: 100%;
+    max-width: 1200px; /*limitador da área útil*/
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.grade-itens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cartao-projeto {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 2px solid var(--escuro2);
+    background-color: var(--escuro3);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.cartao-projeto:hover {
+    transform: scale(1.02);
+    z-index: 1
+}
+
+.cartao-projeto img {
+    width: 100%;
+    height: 200px;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+}
+
+.titulo-secao {
+    /* Removemos o posicionamento absoluto antigo para ele virar a base fixa do cartão */
+    position: relative; 
+    color: var(--claro1);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os textos à esquerda */
+    gap: 12px; /* Espaço entre o título e a pílula */
+    opacity: 1; /* SEMPRE VISÍVEL AGORA */
+}
+
+.titulo-secao h2 {
+    color: var(--claro1);
+    font-size: 2rem;
+    margin: 0;
+    text-align: left;
+}
+
+/* A Pílula reaproveitando o visual da navegação desktop */
+.titulo-secao .secao-pirula {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--claro1); /* Fundo branco puro */
+    color: var(--escuro5); /* Texto escuro para alto contraste */
+    padding: 6px 12px;
+    border-radius: 20px; /* Formato de pílula perfeito */
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
 
 @media (max-width: 767px) {
     
@@ -320,13 +432,18 @@ header {
         background-color: var(--claro1); /* Branco nas apagadas */
     }
 
+        /*grid index para mobile*/
+    .grade-itens {
+        grid-template-columns: 1fr; /*apenas 1 coluna*/
+    }
+
 
 
     /* Máscaras dos seus SVGs Locais */
     .icone-home     { -webkit-mask: url('Elementos/home-symbolic.svg') no-repeat center / contain; mask: url('Elementos/home-symbolic.svg') no-repeat center / contain; }
     .icone-projetos { -webkit-mask: url('Elementos/folder-symbolic.svg') no-repeat center / contain; mask: url('Elementos/folder-symbolic.svg') no-repeat center / contain; }
     .icone-sobre    { -webkit-mask: url('Elementos/avatar-symbolic.svg') no-repeat center / contain; mask: url('Elementos/avatar-symbolic.svg') no-repeat center / contain; }
-    .icone-mais     { -webkit-mask: url('Elementos/plus-symbolic.svg') no-repeat center / contain; mask: url('Elementos/plus-symbolic.svg') no-repeat center / contain; }
+    .icone-certificado { -webkit-mask: url('Elementos/certificate.svg') no-repeat center / contain; mask: url('Elementos/certificate.svg') no-repeat center / contain; }
     .icone-tema     { -webkit-mask: url('Elementos/sun.svg') no-repeat center / contain; mask: url('Elementos/sun.svg') no-repeat center / contain; }
     .icone-libras     { -webkit-mask: url('Elementos/hand.svg') no-repeat center / contain; mask: url('Elementos/hand.svg') no-repeat center / contain; }
 }
@@ -446,13 +563,9 @@ header {
     align-items: center;
     gap: 10px;
     color: var(--claro1);
+    mix-blend-mode: difference !important;
     text-decoration: none;
-    filter: drop-shadow(--sombra-escura);
-    text-shadow: 
-        -1px -1px 0 var(--escuro2),  
-         1px -1px 0 var(--escuro2),
-         -1px  1px 0 var(--escuro2),
-         1px  1px 0 var(--escuro2) !important;
+    font-weight: 700;
 }
 .icone-logo {
     width: 24px;
@@ -461,9 +574,5 @@ header {
     display: inline-block;
     -webkit-mask: url('Elementos/editor.svg') no-repeat center / contain;
     mask: url('Elementos/editor.svg') no-repeat center / contain;
-    background-color: var(--claro3);
-    transition: background-color 0.3s ease;
-}
-.logo:hover .icone-logo {
     background-color: var(--claro1);
 }
