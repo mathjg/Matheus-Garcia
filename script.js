@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (abrir) {
             menuOverlay.classList.add('aberto');
             
-            // Só trava a rolagem se for dispositivo mobile
+            // Só trava a rolagem se for dispositivo mobile no overlay
             if (isMobile) {
                 html.classList.add('travar-rolagem');
                 body.classList.add('travar-rolagem');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             menuOverlay.classList.remove('aberto');
             
-            // Remove a trava em qualquer situação ao fechar
+            // Remove a trava em qualquer situação ao fechar overlay
             html.classList.remove('travar-rolagem');
             body.classList.remove('travar-rolagem');
             

@@ -66,7 +66,7 @@
     --raio-borda: 12px;
 
 }
-    /* --- ESTILOS GERAIS --- */
+/* --- ESTILOS GERAIS --- */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html {
@@ -200,7 +200,6 @@ header {
 }
 
 .titulo-secao {
-    /* Removemos o posicionamento absoluto antigo para ele virar a base fixa do cartão */
     position: relative; 
     color: var(--claro1);
     width: 100%;
@@ -351,7 +350,7 @@ header {
 .icone-linkedin     { -webkit-mask: url('Elementos/icones/linkedin.svg') no-repeat center / contain; mask: url('Elementos/icones/linkedin.svg') no-repeat center / contain; }
 .icone-email     { -webkit-mask: url('Elementos/icones/mail.svg') no-repeat center / contain; mask: url('Elementos/icones/mail.svg') no-repeat center / contain; }
 
-    /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
+/* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
 @media (pointer: fine) {
     .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover, .btn-contato:hover {
         background: color-mix(in srgb, var(--escuro1) 50%, transparent);
@@ -360,7 +359,7 @@ header {
     }
 }
 
-/* SE O DISPOSITIVO FOR TOQUE (Celular de verdade): */
+/* SE O DISPOSITIVO FOR TOQUE TOUCHSCREEN: */
 @media (pointer: coarse) {
     .btn-menu-mobile:active, .btn-fechar-mobile:active, .btn-contato:active, .grid-pirulas-mobile a:active {
     background-color: color-mix(in srgb, var(--escuro1) 50%, transparent);
@@ -387,6 +386,8 @@ header {
     mask: url('Elementos/icones/editor.svg') no-repeat center / contain;
     background-color: var(--claro1);
 }
+
+
 /*REGRAS MOBILE*/
 
 @media (max-width: 767px) {
@@ -492,7 +493,7 @@ header {
         background-color: var(--claro1); /* Branco nas apagadas */
     }
 
-    /* --- O SEU GRID DE PÍLULAS MENU ESTUDÁVEL --- */
+    /* --- GRID DE PÍRULAS --- */
 
     /* A caixa mãe: só dita o layout de 2 colunas */
     .grid-pirulas-mobile {
@@ -540,7 +541,7 @@ header {
         color: var(--escuro4);
     }
 
-        /*grid index para mobile*/
+    /*grid index para mobile*/
     .grade-itens {
         grid-template-columns: 1fr; /*apenas 1 coluna*/
     }
@@ -581,7 +582,7 @@ header {
         justify-content: start;
     }
 
-    /* Sua pílula desktop linda, horizontal e totalmente limpa */
+    /* PÍRULA DE NAVEGAÇÃO DO DESKTOP */
     .navigation {
         display: flex !important;
         flex-direction: row;
