@@ -79,6 +79,11 @@
 }
     /* --- ESTILOS GERAIS --- */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html {
+    height: 100%;
+}
+
 body {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -88,6 +93,10 @@ body {
     line-height: 1.6;
     width: 100%;
     overflow-x: hidden;
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -156,6 +165,7 @@ header {
 .conteudo {
     padding: 40px 20px;
     word-wrap: break-word;
+    flex: 1; /*expansão do corpo em páginas sem conteudo para footer ficar no fim da pag*/
 }
 
 /*grid de ultimos posts do index*/
@@ -232,6 +242,20 @@ header {
     border-radius: 20px; /* Formato de pílula perfeito */
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+.grade-contato a svg {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.botao-completo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 
@@ -363,7 +387,7 @@ header {
 
         /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
     @media (pointer: fine) {
-        .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover {
+        .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover, .btn-contato:hover {
             background: color-mix(in srgb, var(--escuro1) 50%, transparent);
             cursor: pointer;
             transition: background-color 0.2s ease;
@@ -438,6 +462,80 @@ header {
         grid-template-columns: 1fr; /*apenas 1 coluna*/
     }
 
+    .imagem-sobre {
+        width:auto;
+        height:auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .imagem {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 30px;
+        border: solid 2px var(--escuro2);
+        display: block;
+        object-fit: cover;
+    }
+    
+
+
+
+    .rodape {
+        width: 100%;
+        background-color: var(--escuro4);
+        text-align: center;
+        padding: var(--espaco-m) 0;
+        margin-top: var(--espaco-gg);
+    }
+
+    .rodape p {
+        color: var(--claro1);
+        font-size: var(--tamanho4);
+        text-align: center;
+        margin: 0;
+    }
+
+    .rodape a, .rodape a:visited {
+        color: var(--claro1);
+        text-decoration: none;
+    }
+
+    .rodape a:hover {
+        text-decoration: underline;
+    }
+
+    .grade-contato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .btn-contato {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 5px;
+        left: 5px;
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 29px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: none;
+        z-index: 1000;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    }
+
 
 
     /* Máscaras dos seus SVGs Locais */
@@ -447,6 +545,8 @@ header {
     .icone-certificado { -webkit-mask: url('Elementos/certificate.svg') no-repeat center / contain; mask: url('Elementos/certificate.svg') no-repeat center / contain; }
     .icone-tema     { -webkit-mask: url('Elementos/sun.svg') no-repeat center / contain; mask: url('Elementos/sun.svg') no-repeat center / contain; }
     .icone-libras     { -webkit-mask: url('Elementos/hand.svg') no-repeat center / contain; mask: url('Elementos/hand.svg') no-repeat center / contain; }
+    .icone-linkedin     { -webkit-mask: url('Elementos/linkedin.svg') no-repeat center / contain; mask: url('Elementos/linkedin.svg') no-repeat center / contain; }
+    .icone-email     { -webkit-mask: url('Elementos/mail.svg') no-repeat center / contain; mask: url('Elementos/mail.svg') no-repeat center / contain; }
 }
 /* ========================================================
    2. REGRAS EXCLUSIVAS PARA DESKTOP (A partir de 768px)
@@ -557,6 +657,92 @@ header {
         margin: 0 auto;
         color: var(--claro1) !important;
     }
+
+    .imagem-sobre {
+        width:auto;
+        height:auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .imagem {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 30px;
+        border: solid 2px var(--escuro2);
+        display: block;
+        object-fit: cover;
+    }
+
+    .rodape {
+        width: 100%;
+        background-color: var(--escuro4);
+        text-align: center;
+        padding: var(--espaco-m) 0;
+        margin-top: var(--espaco-gg);
+    }
+
+    .rodape p {
+        display
+        color: var(--claro1);
+        font-size: var(--tamanho4);
+        text-align: center;
+        margin: 0;
+    }
+
+    .rodape a, .rodape a:visited {
+        color: var(--claro1);
+    }
+    
+    .icone-pirula {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: var(--claro1); /* Branco nas apagadas */
+    }
+
+    .grade-contato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .btn-contato {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 5px;
+        left: 5px;
+        width: 70px;
+        height: 45px;
+        border: 0.1px solid var(--escuro2) !important;
+        border-radius: 29px;
+        background: color-mix(in srgb, var(--escuro3) 50%, transparent);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: none;
+        z-index: 1000;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    }
+    /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
+    @media (pointer: fine) {
+        .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover, .btn-contato:hover {
+            background: color-mix(in srgb, var(--escuro1) 50%, transparent);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+    }
+
+    /*icones botão footer*/
+    .icone-linkedin     { -webkit-mask: url('Elementos/linkedin.svg') no-repeat center / contain; mask: url('Elementos/linkedin.svg') no-repeat center / contain; }
+    .icone-email     { -webkit-mask: url('Elementos/mail.svg') no-repeat center / contain; mask: url('Elementos/mail.svg') no-repeat center / contain; }
 }
 
 /* --- ÍCONES E LOGO --- */
