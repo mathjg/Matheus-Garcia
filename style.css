@@ -261,11 +261,20 @@ header {
     margin: 0;
 }
 
+.rodape span {
+    color: var(--claro5);
+    font-size: var(--tamanho4);
+    text-align: center;
+    margin: 0;
+}
+
 .rodape a, .rodape a:visited {
-    color: var(--claro1);
+    color: var(--claro5);
 }
 
 .rodape a:hover {
+    color: var(--claro1);
+    transition: color 0.2s ease;
     text-decoration: underline;
 }
 
