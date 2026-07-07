@@ -104,8 +104,6 @@ h3{
     font-size: var(--tamanho3);
 }
 
-/* --- MOBILE (Padrão) --- */
-
 header {
     background-color: transparent;
     backdrop-filter: blur(10px);
@@ -143,11 +141,6 @@ header {
 .janela-gradiente.sobre {
     background: linear-gradient(135deg, var(--azul5), var(--roxo1));
     padding: 120px 20px 60px 20px;
-}
-
-.janela-gradiente h1, .janela-gradiente h2, .janela-gradiente h3, .janela-gradiente h4, .janela-gradiente p {
-    padding: 0;
-    margin: 0;
 }
 
 /*bloco de conteúdo do body*/
