@@ -53,10 +53,11 @@
     --texto-principal: 'Inter', sans-serif;
 
     /*tipografia*/
-    --tamanho1: 2.5rem; /*títulos*/
-    --tamanho2: 1.5rem; /*subtítulos*/
-    --tamanho3: 1rem; /*leitura*/
-    --tamanho4: 0.875rem; /*legendas ou rodapés*/
+    --tamanho1: 3rem; /*títulos*/
+    --tamanho2: 2rem; /*subtítulos*/
+    --tamanho3: 1.5rem; /*leitura*/
+    --tamanho4: 1rem; /*legendas ou rodapés*/
+    --tamanho5: 0.75rem; /*pirulas dos cartões de projeto*/
 
     /*espaçamentos*/
     --espaco-p: 8px;
@@ -221,8 +222,21 @@ header {
     color: var(--escuro5); /* Texto escuro para alto contraste */
     padding: 6px 12px;
     border-radius: 20px; /* Formato de pílula perfeito */
-    font-size: 0.9rem;
+    font-size: var(--tamanho5);
     font-weight: 600;
+}
+
+.titulo-secao .secao-pirula-border {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid var(--claro1); /* Borda branca */
+    color: var(--claro1); /* Texto escuro para alto contraste */
+    padding: 6px 12px;
+    border-radius: 20px; /* Formato de pílula perfeito */
+    font-size: var(--tamanho5);
+    font-weight: 400;
 }
 
 .grade-contato a svg {
@@ -351,6 +365,7 @@ header {
 /*icones botão footer*/
 .icone-linkedin     { -webkit-mask: url('Elementos/icones/linkedin.svg') no-repeat center / contain; mask: url('Elementos/icones/linkedin.svg') no-repeat center / contain; }
 .icone-email     { -webkit-mask: url('Elementos/icones/mail.svg') no-repeat center / contain; mask: url('Elementos/icones/mail.svg') no-repeat center / contain; }
+.icone-github     { -webkit-mask: url('Elementos/icones/github.svg') no-repeat center / contain; mask: url('Elementos/icones/github.svg') no-repeat center / contain; }
 
 /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
 @media (pointer: fine) {
@@ -610,7 +625,7 @@ header {
         color: var(--claro1);
         text-decoration: none;
         font-weight: bold;
-        font-size: var(--tamanho3);
+        font-size: var(--tamanho4);
         display: flex;
         align-items: center;
         padding: 6px 12px; 
