@@ -72,13 +72,11 @@
 
 html {
     height: 100%;
-    font-size-adjust: none !important;
 }
 
 body {
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none !important;
-    text-size-adjust: none;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     font-family: 'Inter';
     background: var(--escuro5);
     color: var(--claro1);
@@ -369,6 +367,18 @@ header {
 .icone-email     { -webkit-mask: url('Elementos/icones/mail.svg') no-repeat center / contain; mask: url('Elementos/icones/mail.svg') no-repeat center / contain; }
 .icone-github     { -webkit-mask: url('Elementos/icones/github.svg') no-repeat center / contain; mask: url('Elementos/icones/github.svg') no-repeat center / contain; }
 
+
+@supports (-moz-appearance: none !important) {
+    html {
+        font-size-adjust: none !important;
+    }
+    body {
+        -webkit-text-size-adjust: none !important;
+        -moz-text-size-adjust: none !important;
+        text-size-adjust: none !important;
+    }
+}
+
 /* SE O DISPOSITIVO TIVER MOUSE (Janela encolhida no PC): */
 @media (pointer: fine) {
     .btn-menu-mobile:hover, .btn-fechar-mobile:hover, .grid-pirulas-mobile a:hover, .btn-contato:hover {
@@ -517,7 +527,7 @@ header {
     /* A caixa mãe: só dita o layout de 2 colunas */
     .grid-pirulas-mobile {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         width: 100%;
         max-width: 320px;
