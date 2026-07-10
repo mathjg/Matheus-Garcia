@@ -75,8 +75,9 @@ html {
 }
 
 body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
     font-family: 'Inter';
     background: var(--escuro5);
     color: var(--claro1);
@@ -515,7 +516,7 @@ header {
     /* A caixa mãe: só dita o layout de 2 colunas */
     .grid-pirulas-mobile {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
         width: 100%;
         max-width: 320px;
