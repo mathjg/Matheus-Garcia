@@ -44,12 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => alternarMenu(false));
         });
     }
-
-    //FORÇA FIREFOX PARA S24 E OUTROS A RESPEITAR O TAMANHO DA FONTE DEFINIDA
-    if (navigator.userAgent.toLowerCase().includes('firefox')) {
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (viewport) {
-            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-        }
-    }
 });
