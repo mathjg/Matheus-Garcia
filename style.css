@@ -72,11 +72,12 @@
 
 html {
     height: 100%;
+    font-size-adjust: none !important;
 }
 
 body {
     -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
+    -moz-text-size-adjust: none !important;
     text-size-adjust: none;
     font-family: 'Inter';
     background: var(--escuro5);
